@@ -15,11 +15,25 @@
         <loading ref="loading"></loading>
         <v-app class>
             <div>
-                <v-app-bar color="white"  flat>
+                <v-app-bar color="white" flat>
                     <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
                     <v-toolbar-title>{{config('app.name')}}</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <sign-out></sign-out>
+                    <v-menu offset-y>
+                        <template v-slot:activator="{ on }">
+                            <v-btn icon v-on="on">
+                                <v-icon>mdi-dots-vertical</v-icon>
+                            </v-btn>
+                        </template>
+                        <v-list-item>
+                            <v-btn href="/admin/profile" icon>
+                                <v-icon>mdi-account-circle</v-icon>
+                            </v-btn>
+                        </v-list-item>
+                        <v-list-item>
+                            <sign-out></sign-out>
+                        </v-list-item>
+                    </v-menu>
                 </v-app-bar>
                 <v-navigation-drawer v-model="drawer" absolute temporary>
                     <v-list nav dense>
