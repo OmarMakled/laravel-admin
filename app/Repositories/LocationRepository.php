@@ -6,6 +6,11 @@ use App\Models\Location;
 
 class LocationRepository
 {
+    public function get()
+    {
+        return Location::get();
+    }
+
     public function search(string $locale, array $inputs)
     {
         $query = (new Location)->newQuery();

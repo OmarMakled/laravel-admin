@@ -26,6 +26,7 @@ class UpdateListingCommand
         return [
             'title' => array_get($this->inputs, 'title'),
             'type' => array_get($this->inputs, 'type'),
+            'location_id' => array_get($this->inputs, 'location_id'),
             'amenities' => array_get($this->inputs, 'amenities'),
             'price' => array_get($this->inputs, 'price'),
             'size' => array_get($this->inputs, 'size'),
@@ -39,6 +40,7 @@ class UpdateListingCommand
     {
         return [
             'title' => ['required', 'string'],
+            'location_id' => ['required'],
             'type' => ['required'],
             'price' => ['required'],
             'size' => ['required'],
@@ -50,6 +52,7 @@ class UpdateListingCommand
         $data = $this->getData();
 
         $this->listing->setTranslation('title', $this->locale, $data['title']);
+        $this->listing->location_id = $data['location_id'];
         $this->listing->size = $data['size'];
         $this->listing->price = $data['price'];
         $this->listing->video = $data['video'];

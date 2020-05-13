@@ -4,6 +4,16 @@
       <v-text-field label="Title" v-model="entity.title" :error-messages="errors"></v-text-field>
     </ValidationProvider>
 
+    <ValidationProvider name="location">
+      <v-select
+        v-model="entity.location_id"
+        :items="entity.form.data.locations.data"
+        item-text="title"
+        item-value="id"
+        label="Location"
+      ></v-select>
+    </ValidationProvider>
+
     <ValidationProvider name="amenities">
       <v-select
         v-model="entity.amenities"

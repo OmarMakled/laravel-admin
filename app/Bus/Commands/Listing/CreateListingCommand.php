@@ -26,6 +26,7 @@ class CreateListingCommand
         return [
             'title' => array_get($this->inputs, 'title'),
             'type' => array_get($this->inputs, 'type'),
+            'location_id' => array_get($this->inputs, 'location_id'),
             'amenities' => array_get($this->inputs, 'amenities'),
             'price' => array_get($this->inputs, 'price'),
             'size' => array_get($this->inputs, 'size'),
@@ -38,6 +39,7 @@ class CreateListingCommand
     {
         return [
             'title' => ['required', 'string'],
+            'location_id' => ['required'],
             'type' => ['required'],
             'price' => ['required'],
             'size' => ['required'],
@@ -51,6 +53,7 @@ class CreateListingCommand
         $listing = new Listing;
         $listing->setTranslation('title', $this->locale, $data['title']);
         $listing->size = $data['size'];
+        $listing->location_id = $data['location_id'];
         $listing->price = $data['price'];
         $listing->video = $data['video'];
         $listing->description = $data['description'];
