@@ -1,0 +1,9 @@
+// Bootstrap
+@import 'variables';
+@import '~bootstrap-v4-rtl/scss/bootstrap-rtl';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+.rtl .dropdown-menu,
+[dir=rtl] .dropdown-menu {
+    right: inherit !important;
+}

@@ -1,0 +1,11 @@
+export const SIGNIN = "sign_in";
+export const SIGNUP = "sign_up";
+export const SIGNOUT = "sign_out";
+export const PROFILE = "profile";
+export const DELETE = "delete";
+export const CREATE_USER = "create_user";
+export const UPDATE_USER = "update_user";
+export const ADMIN_POST = 'admin_post';
+export const ADMIN_DELETE = 'admin_delete';
+export const ADMIN_PUT = 'admin_put';
+export const ADMIN_SEARCH = 'admin_search';

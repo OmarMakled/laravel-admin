@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models\Transformers;
+
+use NamespacedDummyModel;
+use App\Models\Transformers\BaseTransformer;
+
+class DummyClass extends BaseTransformer
+{
+    public function transform(DummyModel $dummyModel)
+    {
+        return [
+            'id' => $dummyModel->id,
+        ];
+    }
+}

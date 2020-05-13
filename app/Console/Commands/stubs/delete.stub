@@ -1,0 +1,23 @@
+<?php
+
+namespace DummyNamespace;
+
+use NamespacedDummyModel;
+use Illuminate\Foundation\Bus\Dispatchable;
+
+class DummyClass
+{
+    use Dispatchable;
+
+    public $dummyModel;
+
+    public function __construct(DummyModel $dummyModel)
+    {
+        $this->dummyModel = $dummyModel;
+    }
+    
+    public function handle()
+    {
+        $this->dummyModel->delete();
+    }
+}
