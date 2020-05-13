@@ -18,11 +18,9 @@ export default {
     onDelete() {
       this.$confirm("Please confirm that you want to delete?").then(res => {
         if (res) {
-          App.request()
-            .delete(this.model, this.id)
-            .then(() => {
-              this.$emit("delete");
-            });
+          App.$request.delete(this.model, this.id).then(() => {
+            this.$emit("delete");
+          });
         }
       });
     }

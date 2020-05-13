@@ -30,8 +30,10 @@ Vue.use(IconsPlugin)
 Vue.use(Toasted)
 
 class App {
-    request() {
-        return request;
+
+    constructor(config) {
+        this.config = config
+        this.$request = request;
     }
 
     boot() {
@@ -64,6 +66,7 @@ class App {
 }
 
 (function () {
-    this.App = new App();
-    this.App.boot();
+    this.CreateApp = function (config) {
+        return new App(config)
+    }
 }.call(window))

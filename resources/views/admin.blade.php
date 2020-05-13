@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <title>{{config('app.name')}}</title>
     <link rel="stylesheet" href="{{ mix('/css/admin.css') }}">
-    <script src="{{mix('/js/admin.js')}}" defer></script>
 </head>
 
 <body>
@@ -58,6 +57,14 @@
             </v-container>
         </v-app>
     </div>
+
+    <script src="{{mix('/js/admin.js')}}"></script>
+    <script>
+        window.App = new CreateApp({!! json_encode([
+            'user' => Auth::user()
+        ])!!})
+        window.App.boot()
+    </script>
 </body>
 
 </html>

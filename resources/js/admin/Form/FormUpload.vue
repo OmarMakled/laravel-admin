@@ -39,18 +39,14 @@ export default {
   },
   methods: {
     find() {
-      App.request()
-        .find(this.model, this.id)
-        .then(response => {
-          this.entity = response.data;
-        });
+      App.$request.find(this.model, this.id).then(response => {
+        this.entity = response.data;
+      });
     },
     onDelete(id) {
       this.$confirm("Please confirm that you want to delete?").then(res => {
         if (res) {
-          App.request()
-            .delete("media", id)
-            .then(() => this.find());
+          App.$request.delete("media", id).then(() => this.find());
         }
       });
     }

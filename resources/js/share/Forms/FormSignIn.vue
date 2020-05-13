@@ -33,7 +33,7 @@ export default {
   methods: {
     signIn() {
       this.loading = true;
-      App.request()
+      App.$request
         .signIn({
           email: this.email,
           password: this.password

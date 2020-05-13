@@ -31,4 +31,9 @@ class AdminController extends Controller
     {
         return view('admin.upload', compact('model', 'id'));
     }
+
+    public function profile()
+    {
+        return view('admin.profile');
+    }
 }

@@ -8,7 +8,7 @@
 export default {
   methods: {
     singOut() {
-      App.request().signOut();
+      App.$request.signOut();
     }
   }
 };

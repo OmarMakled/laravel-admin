@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     find() {
-      App.request()
+      App.$request
         .find(this.model, this.id, {
           "Accept-Language": this.locale
         })
@@ -67,11 +67,11 @@ export default {
       this.loading = true;
       let request;
       if (this.entity.id) {
-        request = App.request().put(this.model, this.entity.id, this.entity, {
+        request = App.$request.put(this.model, this.entity.id, this.entity, {
           "Accept-Language": this.locale
         });
       } else {
-        request = App.request().post(this.model, this.entity, {
+        request = App.$request.post(this.model, this.entity, {
           "Accept-Language": this.locale
         });
 

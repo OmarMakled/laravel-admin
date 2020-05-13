@@ -75,7 +75,7 @@ export default {
       );
     },
     search() {
-      App.request()
+      App.$request
         .get(this.model, this.url, {
           "Accept-Language": this.url.locale || "en"
         })

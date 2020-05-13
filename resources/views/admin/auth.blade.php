@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{config('app.name')}}</title>
     <link rel="stylesheet" href="{{ mix('/css/admin.css') }}">
-    <script src="{{mix('/js/admin.js')}}" defer></script>
-
 </head>
 
 <body>
@@ -23,6 +21,12 @@
             </v-container>
         </v-app>
     </div>
+
+    <script src="{{mix('/js/admin.js')}}"></script>
+    <script>
+        window.App = new CreateApp({})
+        window.App.boot()
+    </script>
 </body>
 
 </html>

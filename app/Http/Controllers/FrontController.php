@@ -15,9 +15,4 @@ class FrontController extends Controller
 
         return view('pages/home');
     }
-
-    public function profile()
-    {
-        return view('auth/profile');
-    }
 }

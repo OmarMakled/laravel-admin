@@ -30,6 +30,10 @@ class AdminRoutes
                 'as' => 'admin:home',
                 'uses' => 'AdminController@home',
             ]);
+            $router->get('/admin/profile', [
+                'as' => 'admin:profile',
+                'uses' => 'AdminController@profile',
+            ]);
             $router->get('/admin/index/{model}', [
                 'as' => 'admin:index',
                 'uses' => 'AdminController@index',

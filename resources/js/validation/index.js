@@ -4,11 +4,13 @@ import {
 import {
     required,
     email,
+    min,
     numeric
 } from 'vee-validate/dist/rules';
 extend("required", required);
 extend("email", email);
 extend("numeric", numeric);
+extend("min", min);
 
 extend("decimal", {
     validate: (value, {
