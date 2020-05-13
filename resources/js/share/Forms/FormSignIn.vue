@@ -13,7 +13,7 @@
         :error-messages="errors"
       ></v-text-field>
     </ValidationProvider>
-    <v-btn :disabled="loading" block @click="signIn" color="primary">
+    <v-btn :disabled="loading" block @click="signIn" dark>
       {{ $t('text.signin') }}
       <v-progress-circular v-if="loading" indeterminate :width="2" :size="20"></v-progress-circular>
     </v-btn>

@@ -16,7 +16,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-btn dark rounded color="primary" block id="uppy">{{$t('text.upload_photo')}}</v-btn>
+    <v-btn dark rounded block id="uppy">{{$t('text.upload_photo')}}</v-btn>
     <uppy :url="`/api/upload/${model}/${id}`" @complete="find"></uppy>
   </b-container>
 </template>

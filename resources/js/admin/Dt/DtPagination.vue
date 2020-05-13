@@ -1,5 +1,5 @@
 <template>
-  <v-pagination ref="pagination" circle v-model="value" :length="pages"></v-pagination>
+  <v-pagination ref="pagination" circle v-model="value" :length="pages" color="black"></v-pagination>
 </template>
 
 <script>

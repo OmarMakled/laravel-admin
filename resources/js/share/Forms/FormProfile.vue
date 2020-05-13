@@ -16,14 +16,7 @@
         :error-messages="errors"
       ></v-text-field>
     </ValidationProvider>
-    <v-btn
-      class="mt-4"
-      :disabled="invalid || loading"
-      block
-      color="primary"
-      rounded
-      @click="onSave"
-    >
+    <v-btn class="mt-4" :disabled="invalid || loading" block dark rounded @click="onSave">
       {{ $t('text.save') }}
       <v-progress-circular v-if="loading" indeterminate :width="2" :size="20"></v-progress-circular>
     </v-btn>
