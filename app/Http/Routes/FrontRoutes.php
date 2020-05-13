@@ -20,15 +20,15 @@ class FrontRoutes
             'prefix' => '{locale}',
             'where' => ['locale' => config('app.locales')],
         ], function (Registrar $router) {
-            $router->get('/', [
-                'as' => 'front:home',
-                'uses' => 'FrontController@home',
-            ]);
-            $router->get('/auth/profile', [
-                'middleware' => 'auth',
-                'as' => 'auth:profile',
-                'uses' => 'FrontController@profile',
-            ]);
+            // $router->get('/', [
+            //     'as' => 'front:home',
+            //     'uses' => 'FrontController@home',
+            // ]);
+            // $router->get('/auth/profile', [
+            //     'middleware' => 'auth',
+            //     'as' => 'auth:profile',
+            //     'uses' => 'FrontController@profile',
+            // ]);
         });
     }
 }

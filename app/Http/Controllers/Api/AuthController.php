@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Bus\Commands\User\CreateUserCommand;
-use App\Bus\Commands\User\UpdateUserCommand;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Validator\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -19,18 +15,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
 
         return response()->json([]);
-    }
-
-    public function signUp(Request $request)
-    {
-        try {
-            $user = CreateUserCommand::dispatchNow($request->only('name', 'email', 'password'));
-            Auth::login($user, true);
-            $request->session()->regenerate();
-            return response()->json([], 201);
-        } catch (ValidationException $e) {
-            return response()->json(['errors' => $e->getMessageBag()], 422);
-        }
     }
 
     public function signIn(Request $request)
@@ -61,13 +45,28 @@ class AuthController extends Controller
         return response()->json([], 201);
     }
 
-    public function profile(Request $request)
+    public function updateProfile(Request $request)
     {
-        try {
-            $user = UpdateUserCommand::dispatchNow(Auth::user(), $request->only('name', 'email', 'password'));
-            return response()->json([], 201);
-        } catch (ValidationException $e) {
-            return response()->json(['errors' => $e->getMessageBag()], 422);
+        $validator = Validator::make(
+            $request->only('name', 'email', 'password'), [
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'sometimes|min:8',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
         }
+
+        $user = Auth::user();
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        return response()->json([], 201);
+
     }
 }

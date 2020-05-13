@@ -20,16 +20,16 @@ class ApiRoutes
             'namespace' => 'Api',
             'prefix' => 'api',
         ], function (Registrar $router) {
-            $router->get('/listings', [
-                'uses' => 'ListingController@getList',
-            ]);
-            $router->post('/auth/signup', [
-                'uses' => 'AuthController@signUp',
-            ]);
-            $router->patch('/auth/profile', [
-                'middleware' => 'auth',
-                'uses' => 'AuthController@profile',
-            ]);
+            // $router->get('/listings', [
+            //     'uses' => 'ListingController@getList',
+            // ]);
+            // $router->post('/auth/signup', [
+            //     'uses' => 'AuthController@signUp',
+            // ]);
+            // $router->patch('/auth/profile', [
+            //     'middleware' => 'auth',
+            //     'uses' => 'AuthController@profile',
+            // ]);
         });
     }
 }

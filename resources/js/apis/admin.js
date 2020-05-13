@@ -83,6 +83,16 @@ export default {
                 })
         })
     },
+    updateProfile(data) {
+        return new Promise((resolve, reject) => {
+            request.put(`/auth/profile`, data)
+                .then(response => {
+                    resolve(response)
+                }).catch(error => {
+                    reject(error)
+                })
+        })
+    },
     signIn(data) {
         return new Promise((resolve, reject) => {
             request.post('/auth/signin', data)

@@ -41,7 +41,24 @@ export default {
     };
   },
   methods: {
-    onSave() {}
+    onSave() {
+      this.loading = true;
+      let data = {
+        name: this.user.name,
+        email: this.user.email
+      };
+      if (this.newPassword) {
+        data.password = this.newPassword;
+      }
+      App.$request
+        .updateProfile(data)
+        .catch(error => {
+          this.$refs.observer.setErrors(error.response.data.errors);
+        })
+        .then(() => {
+          this.loading = false;
+        });
+    }
   }
 };
 </script>

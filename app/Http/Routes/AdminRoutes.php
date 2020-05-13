@@ -15,40 +15,49 @@ class AdminRoutes
      */
     public function map(Registrar $router)
     {
+        $this->web($router);
+        $this->api($router);
+    }
+
+    private function web(Registrar $router)
+    {
         $router->group([
             'middleware' => ['web'],
+            'prefix' => '/admin',
         ], function (Registrar $router) {
-            $router->get('/admin/auth', [
+            $router->get('/auth', [
                 'uses' => 'AdminController@login',
             ]);
-        });
-
-        $router->group([
-            'middleware' => ['web', 'auth'],
-        ], function (Registrar $router) {
-            $router->get('/admin', [
+            $router->get('/', [
+                'middleware' => ['auth'],
                 'as' => 'admin:home',
                 'uses' => 'AdminController@home',
             ]);
-            $router->get('/admin/profile', [
+            $router->get('/profile', [
+                'middleware' => ['auth'],
                 'as' => 'admin:profile',
                 'uses' => 'AdminController@profile',
             ]);
-            $router->get('/admin/index/{model}', [
+            $router->get('/index/{model}', [
+                'middleware' => ['auth'],
                 'as' => 'admin:index',
                 'uses' => 'AdminController@index',
             ]);
-            $router->get('/admin/form/{model}/{id?}', [
+            $router->get('/form/{model}/{id?}', [
+                'middleware' => ['auth'],
                 'as' => 'admin:form',
                 'uses' => 'AdminController@form',
             ]);
-            $router->get('/admin/upload/{model}/{id}', [
+            $router->get('/upload/{model}/{id}', [
+                'middleware' => ['auth'],
                 'as' => 'admin:upload',
                 'uses' => 'AdminController@upload',
             ]);
-
         });
+    }
 
+    private function api(Registrar $router)
+    {
         $router->group([
             'middleware' => ['api'],
             'namespace' => 'Api',
@@ -57,34 +66,38 @@ class AdminRoutes
             $router->post('/auth/signin', [
                 'uses' => 'AuthController@signIn',
             ]);
-        });
-
-        $router->group([
-            'middleware' => ['api', 'auth'],
-            'namespace' => 'Api',
-            'prefix' => 'api',
-        ], function (Registrar $router) {
             $router->post('/auth/signout', [
+                'middleware' => ['auth'],
                 'uses' => 'AuthController@signOut',
             ]);
+            $router->put('/auth/profile', [
+                'middleware' => ['auth'],
+                'uses' => 'AuthController@updateProfile',
+            ]);
             $router->post('/create/{model}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@create',
             ]);
             $router->get('/search/{model}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@search',
             ]);
 
             $router->get('/{model}/{id?}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@get',
             ]);
 
             $router->put('/update/{model}/{id}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@update',
             ]);
             $router->delete('/delete/{model}/{id}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@delete',
             ]);
             $router->post('/upload/{model}/{id}', [
+                'middleware' => ['auth'],
                 'uses' => 'ModelController@upload',
             ]);
         });
