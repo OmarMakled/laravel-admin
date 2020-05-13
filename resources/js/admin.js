@@ -50,14 +50,14 @@ class App {
         });
     }
 
-    success() {
-        Vue.toasted.show('Success', {
+    success(msg) {
+        Vue.toasted.show(msg, {
             type: 'success'
         });
     }
 
-    error() {
-        Vue.toasted.show('Error', {
+    error(msg) {
+        Vue.toasted.show(msg, {
             type: 'error'
         });
     }

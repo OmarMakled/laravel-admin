@@ -18,13 +18,13 @@ request.interceptors.request.use(function (config) {
 request.interceptors.response.use(function (response) {
     App.$loading.finish();
     if (response.status == 201) {
-        App.success();
+        App.success('Success !');
     }
     return response;
 }, function (error) {
     App.$loading.finish();
     if (error.response.status == 422) {
-        App.error();
+        App.error('Fix errors');
     }
     return Promise.reject(error);
 });
