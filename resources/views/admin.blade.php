@@ -55,6 +55,7 @@
             <v-container>
                 @yield('content')
             </v-container>
+            <fad></fad>
         </v-app>
     </div>
 
