@@ -19,7 +19,7 @@ export default {
     canSuccess: true,
     duration: 3000,
     height: "3px",
-    color: "blue",
+    color: "black",
     failedColor: "red"
   }),
 
@@ -97,7 +97,6 @@ export default {
   width: 0%;
   transition: width 0.2s, opacity 0.4s;
   opacity: 1;
-  background-color: #efc14e;
   z-index: 999999;
 }
 </style>
