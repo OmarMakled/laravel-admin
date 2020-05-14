@@ -7,7 +7,14 @@
     </div>
     <ValidationObserver ref="observer" v-slot="{invalid}">
       <component :is="component" :entity="entity" v-if="entity"></component>
-      <v-btn class="mt-4" :disabled="invalid || loading" block dark rounded @click="onSave">
+      <v-btn
+        :disabled="invalid || loading"
+        block
+        color="black"
+        class="mt-4 white--text"
+        rounded
+        @click="onSave"
+      >
         {{ $t('text.save') }}
         <v-progress-circular v-if="loading" indeterminate :width="2" :size="20"></v-progress-circular>
       </v-btn>

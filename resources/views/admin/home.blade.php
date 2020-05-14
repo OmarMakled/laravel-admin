@@ -18,4 +18,11 @@
         </v-card>
     </v-col>
 </v-row>
+<v-btn small color="black" class="white--text">Normal</v-btn>
+<v-btn small dark>Normal</v-btn>
+<p>
+    <v-btn small color="black" class="white--text" disabled>Normal</v-btn>
+    <v-btn small dark disabled>Normal</v-btn>
+</p>
+
 @endsection
