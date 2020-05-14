@@ -45,6 +45,14 @@
     <ValidationProvider name="size" rules="required|decimal" v-slot="{ errors }">
       <v-text-field label="Size" v-model="entity.size" :error-messages="errors"></v-text-field>
     </ValidationProvider>
+
+    <ValidationProvider name="rooms" rules="required|decimal" v-slot="{ errors }">
+      <v-text-field label="Rooms" v-model="entity.rooms" :error-messages="errors"></v-text-field>
+    </ValidationProvider>
+
+    <ValidationProvider name="baths" rules="required|decimal" v-slot="{ errors }">
+      <v-text-field label="Baths" v-model="entity.baths" :error-messages="errors"></v-text-field>
+    </ValidationProvider>
   </div>
 </template>
 

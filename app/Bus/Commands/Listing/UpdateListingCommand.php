@@ -30,8 +30,8 @@ class UpdateListingCommand
             'amenities' => array_get($this->inputs, 'amenities'),
             'price' => array_get($this->inputs, 'price'),
             'size' => array_get($this->inputs, 'size'),
-            'video' => array_get($this->inputs, 'video'),
-            'description' => array_get($this->inputs, 'description'),
+            'rooms' => array_get($this->inputs, 'rooms'),
+            'baths' => array_get($this->inputs, 'baths'),
         ];
 
     }
@@ -42,8 +42,10 @@ class UpdateListingCommand
             'title' => ['required', 'string'],
             'location_id' => ['required'],
             'type' => ['required'],
-            'price' => ['required'],
-            'size' => ['required'],
+            'price' => ['required', 'numeric'],
+            'size' => ['required', 'numeric'],
+            'rooms' => ['required', 'numeric'],
+            'baths' => ['required', 'numeric'],
         ];
     }
 
@@ -55,8 +57,8 @@ class UpdateListingCommand
         $this->listing->location_id = $data['location_id'];
         $this->listing->size = $data['size'];
         $this->listing->price = $data['price'];
-        $this->listing->video = $data['video'];
-        $this->listing->description = $data['description'];
+        $this->listing->rooms = $data['rooms'];
+        $this->listing->baths = $data['baths'];
         $this->listing->save();
         $attributes = $data['amenities'];
         $attributes[] = $data['type'];

@@ -13,6 +13,8 @@ class ListingSeeder extends Seeder
             'size' => 120,
             'location_id' => 1,
             'price' => 11200.00,
+            'rooms' => 1,
+            'baths' => 2,
         ],
         [
             'title' => ['en' => 'studio for sale', 'ar' => 'استوديو للبيع'],
@@ -20,6 +22,8 @@ class ListingSeeder extends Seeder
             'size' => 220,
             'location_id' => 1,
             'price' => 112200.00,
+            'rooms' => 1,
+            'baths' => 2,
         ],
     ];
 
@@ -37,6 +41,8 @@ class ListingSeeder extends Seeder
             $listing->location_id = $val['location_id'];
             $listing->price = $val['price'];
             $listing->size = $val['size'];
+            $listing->rooms = $val['rooms'];
+            $listing->baths = $val['baths'];
             $listing->save();
 
             $listing->attributes()->attach($val['attributes']);

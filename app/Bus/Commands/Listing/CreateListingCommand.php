@@ -30,8 +30,7 @@ class CreateListingCommand
             'amenities' => array_get($this->inputs, 'amenities'),
             'price' => array_get($this->inputs, 'price'),
             'size' => array_get($this->inputs, 'size'),
-            'video' => array_get($this->inputs, 'video'),
-            'description' => array_get($this->inputs, 'description'),
+            'rooms' => array_get($this->inputs, 'rooms'),
         ];
     }
 
@@ -41,8 +40,9 @@ class CreateListingCommand
             'title' => ['required', 'string'],
             'location_id' => ['required'],
             'type' => ['required'],
-            'price' => ['required'],
-            'size' => ['required'],
+            'price' => ['required', 'numeric'],
+            'size' => ['required', 'numeric'],
+            'rooms' => ['required', 'numeric'],
         ];
     }
 
@@ -52,11 +52,11 @@ class CreateListingCommand
 
         $listing = new Listing;
         $listing->setTranslation('title', $this->locale, $data['title']);
-        $listing->size = $data['size'];
         $listing->location_id = $data['location_id'];
+        $listing->size = $data['size'];
         $listing->price = $data['price'];
-        $listing->video = $data['video'];
-        $listing->description = $data['description'];
+        $listing->rooms = $data['rooms'];
+        $listing->baths = $data['baths'];
         $listing->save();
         $attributes = $data['amenities'];
         $attributes[] = $data['type'];

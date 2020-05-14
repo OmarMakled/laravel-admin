@@ -19,10 +19,8 @@ class CreateListingsTable extends Migration
             $table->integer('location_id')->unsigned();
             $table->decimal('price', 16, 2);
             $table->float('size', 9, 2);
-            $table->string('video')->nullable();
-            $table->string('description')->nullable();
-            $table->decimal('lat', 11, 8)->nullable();
-            $table->decimal('lng', 11, 8)->nullable();
+            $table->integer('rooms');
+            $table->integer('baths');
             $table->timestamps();
         });
     }

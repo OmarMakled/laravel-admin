@@ -29,6 +29,8 @@ class ListingTransformer extends BaseTransformer
             'amenities' => ($amenities = $listing->amenities) ? array_values($amenities->pluck('id')->toArray()) : [],
             'size' => $listing->size,
             'price' => $listing->price,
+            'rooms' => $listing->rooms,
+            'baths' => $listing->baths,
         ];
     }
 
