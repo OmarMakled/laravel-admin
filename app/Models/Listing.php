@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Attribute;
-use App\Models\Traits\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -12,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Listing extends Model implements HasMedia
 {
-    use HasMediaTrait, HasTranslations, Searchable;
+    use HasMediaTrait, HasTranslations;
 
     protected $guarded = [];
 
